@@ -21,8 +21,11 @@
   #dnf install nodejs -y
   - name: install node js  
     ansible.builtin.dnf:
-      name: nodejs
-      state: installed  
+      name: "{{item}}"
+      state: installed 
+    loop:
+    - nodejs
+    - mysql   
 
   #useradd expense
   # ansible add user
@@ -100,6 +103,10 @@
       target: /app/schema/backend.sql
       state: import
       name: all
+
+  # systemctl daemon-reload
+  # systemctl restart backend
+
   
 
 
