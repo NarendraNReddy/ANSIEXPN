@@ -2,8 +2,14 @@
   hosts: localhost
   become: no 
   tasks:
-  - name: command line
-    ansible.builtin.commnd: "echo, 'hi from commandline' > /tmp/commandline.txt "
+  - name: cmd line
+    ansible.builtin.command: "echo,'hi from commandline' > /tmp/cmdline.txt"
 
-  - name: shell module
-    ansible.builtin.shell: "echo ,'Hi from shell module' > /tmp/shell.txt"  
+  - name: shell
+    ansible.builtin.shell: "echo,'hi from shell' > /tmp/shell.txt"
+    
+  # - name: command line
+  #   ansible.builtin.commnd: "echo, 'hi from commandline' > /tmp/commandline.txt "
+
+  # - name: shell module
+  #   ansible.builtin.shell: "echo ,'Hi from shell module' > /tmp/shell.txt"  
