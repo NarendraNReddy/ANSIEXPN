@@ -1,6 +1,6 @@
 - name: shell vs command line
   hosts: localhost
-  become: no 
+  become: yes 
   tasks:
   # - name: cmd line
   #   ansible.builtin.command: "echo,'hi from commandline' > /tmp/cmdline.txt"
