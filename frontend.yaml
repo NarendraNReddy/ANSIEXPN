@@ -1,0 +1,23 @@
+- name: configure front end
+  become: yes 
+  hosts: frontend
+  tasks:
+  # dnf install nginx -y 
+  - name: install nginx
+    ansible.builtin.dnf:
+      name: nginx
+      state: latest
+  # systemctl enable nginx    
+  - name: start and enable nginx
+    ansible.builtin.service:
+      name: nginx 
+      state: started
+      enabled: yes 
+      
+  # rm -rf /usr/share/nginx/html/*
+  #ansible file module
+  # - name: Remove default content
+  #   ansible.builtin.file:
+      
+
+      
