@@ -15,10 +15,11 @@
       enabled: yes 
       
   # rm -rf /usr/share/nginx/html/*
-  ansible file module
-  - name: Remove default content
-    ansible.builtin.file:
-      path: /usr/share/nginx/hmtl
-      state: absent
+  - name: delete default webiste
+  ansible.builtin.file:
+    path: /usr/share/nginx/hmtl
+    state: absent
+
+
 
       
