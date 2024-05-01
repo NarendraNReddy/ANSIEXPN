@@ -75,11 +75,16 @@
   # Environment=DB_HOST="db.daws78s-nnr.online"
   # ansible copy 
 
-  - name: copy backend service code
+  - name: copy backend service
     ansible.builtin.copy:
       src: backend.service
-      dest: /etc/systemd/system/backend.service
-      remote_src: yes
+      dest: /etc/systemd/system/backend.service  
+
+  # - name: copy backend service code
+  #   ansible.builtin.copy:
+  #     src: backend.service
+  #     dest: /etc/systemd/system/backend.service
+  #     remote_src: yes
       
 
   #dnf install mysql -y #
