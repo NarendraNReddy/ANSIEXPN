@@ -21,7 +21,7 @@
 
   - name: create html direcotry
     ansible.builtin.file:
-      path: /usr/share/nginx/hmtl
+      path: /usr/share/nginx/html
       state: directory  
 
   #download and unzip
@@ -34,7 +34,7 @@
       src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
       dest: /usr/share/nginx/html
       remote_src: yes 
-      
+
 
       
       
