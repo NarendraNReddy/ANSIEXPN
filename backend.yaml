@@ -1,6 +1,15 @@
 - name: backend setup
   hosts: backend
   become: yes 
+ vars:
+    login_host: db.daws78s-nnr.online
+
+  vars_prompt:
+  - name: mysql_root_password  
+    prompt: "Enter::::ExpenseApp@1"
+    private: no
+    
+
   tasks:
   # dnf module disable nodejs -y
   - name: disable node js 
@@ -51,11 +60,51 @@
   #npm install  
   #builtin command  
   #args command module to install in /app
+  # node_modules should modules in /app after npm install
 
   - name: install npm dependencies
     ansible.builtin.command: npm install
     args:
       chdir: /app
+
+  # vim /etc/systemd/system/backend.service
+  # created a backend.service in same folder
+  # Environment=DB_HOST="db.daws78s-nnr.online"
+  # ansible copy 
+
+  - name: copy backend service code
+    ansible.builtin.copy:
+      src: backend.service
+      dst: /etc/systemd/system/backend.service
+
+  #dnf install mysql -y #
+  #mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+  # Intially need PyMySQL 
+  - name: PyMySQL
+    ansible.builtin.pip:
+      name:
+      - PyMySQL
+      - cryptography
+      executable: pip3.9   
+
+  #  Backend to DB connection
+  # mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
+  # mysql
+  #ls backend.schema
+  - name: import data into mysql
+    community.mysql.mysql_db:
+      login_user: root
+      login_password: "{{mysql_root_password}}"
+      login_host: "{{login_host}}"
+      target: /app/schema/backend.sql
+      state: import
+  
+
+
+
+
+
+
 
 
 
