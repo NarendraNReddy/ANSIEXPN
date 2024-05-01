@@ -78,14 +78,8 @@
   - name: copy backend service
     ansible.builtin.copy:
       src: backend.service
-      dest: /etc/systemd/system/backend.service  
-
-  # - name: copy backend service code
-  #   ansible.builtin.copy:
-  #     src: backend.service
-  #     dest: /etc/systemd/system/backend.service
-  #     remote_src: yes
-      
+      dest: /etc/systemd/system/backend.service 
+      remote_src: yes       
 
   #dnf install mysql -y #
   #mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pExpenseApp@1 < /app/schema/backend.sql
@@ -112,6 +106,10 @@
 
   # systemctl daemon-reload
   # systemctl restart backend
+  - name: daemon reload
+    ansible.builtin.systemd_service:
+      daemon_reload: true
+          
 
   
 
