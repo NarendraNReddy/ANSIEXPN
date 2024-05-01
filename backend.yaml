@@ -33,7 +33,7 @@
   # ansible add user
   - name:  useradd expense #useradd expense ansible add user
     ansible.builtin.user:
-      name: expemse
+      name: expense
 
   # mkdir /app
   # ansible.create directry
