@@ -47,6 +47,18 @@
       dest: /app
       remote_src: yes   #already files present 
 
+  #cd /app
+  #npm install  
+  #builtin command  
+  #args command module to install in /app
+
+  - name: install npm dependencies
+    ansible.builtin.command: npm install
+    args:
+      chdir: /app
+
+
+
 
 
 
