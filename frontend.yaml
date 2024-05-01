@@ -16,8 +16,8 @@
 
   - name: delete default website
     ansible.builtin.file:
-      path: /usr/share/nginx/hmtl
-      state: absent    
+      path: /usr/share/nginx/hmtl/
+      state: absent
       
       
 
