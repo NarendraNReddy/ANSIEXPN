@@ -12,13 +12,9 @@
     ansible.builtin.service:
       name: nginx 
       state: started
-      enabled: yes 
+      enabled: yes
       
-  # rm -rf /usr/share/nginx/html/*
-  - name: delete default webiste
-  ansible.builtin.file:
-    path: /usr/share/nginx/hmtl
-    state: absent
+      
 
 
 
