@@ -3,5 +3,5 @@
   become: no 
   tasks:
   - name: cmd line
-    ansible.builtin.command: "Hi,echo 'cmd line' > /tmp/cmd.txt"
-    
+    ansible.builtin.command: "echo 'Hi,cmd line' > /tmp/cmd.txt"
+
