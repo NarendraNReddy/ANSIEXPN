@@ -4,4 +4,6 @@
   tasks:
   - name: cmd line
     ansible.builtin.command: "echo 'Hi,cmd line' > /tmp/cmd.txt"
+  - name: shell
+    ansible.builtin.shell: "echo 'Hi from shell' > /tmp/shell.txt"  
 
