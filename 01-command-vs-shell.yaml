@@ -3,7 +3,7 @@
   become: no 
   tasks:
   - name: command line
-    ansible.builtin.commndline: "echo, 'hi from commandline' > /tmp/commandline.txt "
-    
+    ansible.builtin.commnd: "echo, 'hi from commandline' > /tmp/commandline.txt "
+
   - name: shell module
     ansible.builtin.shell: "echo ,'Hi from shell module' > /tmp/shell.txt"  
